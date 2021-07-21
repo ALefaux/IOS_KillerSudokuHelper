@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E41700C26A035EF00548B2A /* Int-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41700B26A035EF00548B2A /* Int-Extensions.swift */; };
+		1EAFA11B26A74F5D00DFEB76 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA11A26A74F5D00DFEB76 /* HomeDelegate.swift */; };
 		1ECB9F5A269452C000CC1EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB9F59269452C000CC1EDB /* AppDelegate.swift */; };
 		1ECB9F5C269452C000CC1EDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB9F5B269452C000CC1EDB /* SceneDelegate.swift */; };
-		1ECB9F5E269452C000CC1EDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB9F5D269452C000CC1EDB /* ViewController.swift */; };
+		1ECB9F5E269452C000CC1EDB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB9F5D269452C000CC1EDB /* HomeViewController.swift */; };
 		1ECB9F61269452C000CC1EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECB9F5F269452C000CC1EDB /* Main.storyboard */; };
 		1ECB9F63269452C200CC1EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECB9F62269452C200CC1EDB /* Assets.xcassets */; };
 		1ECB9F66269452C200CC1EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECB9F64269452C200CC1EDB /* LaunchScreen.storyboard */; };
+		1EDBFD1626A6AB760049C014 /* TermsChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBFD1526A6AB760049C014 /* TermsChoiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E41700B26A035EF00548B2A /* Int-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-Extensions.swift"; sourceTree = "<group>"; };
+		1EAFA11A26A74F5D00DFEB76 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		1ECB9F56269452C000CC1EDB /* Killer Sudoku helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Killer Sudoku helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECB9F59269452C000CC1EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECB9F5B269452C000CC1EDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1ECB9F5D269452C000CC1EDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1ECB9F5D269452C000CC1EDB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1ECB9F60269452C000CC1EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ECB9F62269452C200CC1EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ECB9F65269452C200CC1EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ECB9F67269452C200CC1EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EDBFD1526A6AB760049C014 /* TermsChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsChoiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +64,14 @@
 			children = (
 				1ECB9F59269452C000CC1EDB /* AppDelegate.swift */,
 				1ECB9F5B269452C000CC1EDB /* SceneDelegate.swift */,
-				1ECB9F5D269452C000CC1EDB /* ViewController.swift */,
+				1ECB9F5D269452C000CC1EDB /* HomeViewController.swift */,
 				1ECB9F5F269452C000CC1EDB /* Main.storyboard */,
 				1ECB9F62269452C200CC1EDB /* Assets.xcassets */,
 				1ECB9F64269452C200CC1EDB /* LaunchScreen.storyboard */,
 				1ECB9F67269452C200CC1EDB /* Info.plist */,
+				1E41700B26A035EF00548B2A /* Int-Extensions.swift */,
+				1EDBFD1526A6AB760049C014 /* TermsChoiceViewController.swift */,
+				1EAFA11A26A74F5D00DFEB76 /* HomeDelegate.swift */,
 			);
 			path = "Killer Sudoku helper";
 			sourceTree = "<group>";
@@ -137,9 +146,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ECB9F5E269452C000CC1EDB /* ViewController.swift in Sources */,
+				1EDBFD1626A6AB760049C014 /* TermsChoiceViewController.swift in Sources */,
+				1ECB9F5E269452C000CC1EDB /* HomeViewController.swift in Sources */,
 				1ECB9F5A269452C000CC1EDB /* AppDelegate.swift in Sources */,
 				1ECB9F5C269452C000CC1EDB /* SceneDelegate.swift in Sources */,
+				1EAFA11B26A74F5D00DFEB76 /* HomeDelegate.swift in Sources */,
+				1E41700C26A035EF00548B2A /* Int-Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
