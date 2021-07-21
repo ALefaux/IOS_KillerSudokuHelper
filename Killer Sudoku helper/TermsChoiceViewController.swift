@@ -16,6 +16,12 @@ class TermsChoiceViewController: UIViewController {
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     @IBOutlet weak var threeButton: UIButton!
+    @IBOutlet weak var fourButton: UIButton!
+    @IBOutlet weak var fiveButton: UIButton!
+    @IBOutlet weak var sixButton: UIButton!
+    @IBOutlet weak var sevenButton: UIButton!
+    @IBOutlet weak var eightButton: UIButton!
+    @IBOutlet weak var nineButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,18 @@ class TermsChoiceViewController: UIViewController {
             twoButton.backgroundColor = getBackgroundColor(element: 2)
         case 3:
             threeButton.backgroundColor = getBackgroundColor(element: 3)
+        case 4:
+            fourButton.backgroundColor = getBackgroundColor(element: 4)
+        case 5:
+            fiveButton.backgroundColor = getBackgroundColor(element: 5)
+        case 6:
+            sixButton.backgroundColor = getBackgroundColor(element: 6)
+        case 7:
+            sevenButton.backgroundColor = getBackgroundColor(element: 7)
+        case 8:
+            eightButton.backgroundColor = getBackgroundColor(element: 8)
+        case 9:
+            nineButton.backgroundColor = getBackgroundColor(element: 9)
         default:
             break
         }
