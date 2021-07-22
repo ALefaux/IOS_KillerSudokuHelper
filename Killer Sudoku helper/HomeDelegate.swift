@@ -8,6 +8,6 @@
 import Foundation
 
 protocol HomeDelegate {
-    func setPossibleTerms(possibleTerms: [Int])
+    func setNotUsedTerms(notUsedTerms: [Int])
     func setNeededTerms(neededTerms: [Int])
 }

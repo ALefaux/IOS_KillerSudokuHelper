@@ -11,12 +11,13 @@ class HomeViewController: UIViewController, HomeDelegate {
 
     @IBOutlet weak var sumTextField: UITextField!
     @IBOutlet weak var numberTermsTextField: UITextField!
-
-    private var possibleTerms: [Int] = [Int]()
-    private var neededTerms: [Int] = [Int]()
-    
     @IBOutlet weak var possibleTermsText: UILabel!
     @IBOutlet weak var neededTermsText: UILabel!
+    @IBOutlet weak var resultsTitleText: UILabel!
+    @IBOutlet weak var resultsTextView: UITextView!
+
+    private var notUsedTerms: [Int] = [Int]()
+    private var neededTerms: [Int] = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,45 +25,6 @@ class HomeViewController: UIViewController, HomeDelegate {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
-    }
-    
-    func setPossibleTerms(possibleTerms: [Int]) {
-        self.possibleTerms = possibleTerms
-        self.possibleTermsText.text = possibleTerms.isEmpty ? "Tous les termes possible" : possibleTerms.map({ String($0) }).joined(separator: ", ")
-    }
-    
-    func setNeededTerms(neededTerms: [Int]) {
-        self.neededTerms = neededTerms
-        self.neededTermsText.text = neededTerms.isEmpty ? "Aucun termes obligatoires" : neededTerms.map({ String($0) }).joined(separator: ", ")
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let button = sender as? UIButton else {
-            return
-        }
-        var termsSelected: [Int]
-        var termsType: TermsChoiceViewController.TermsType
-        
-        if button.tag == 1 {
-            termsSelected = possibleTerms
-            termsType = .possible
-        } else {
-            termsSelected = neededTerms
-            termsType = .needed
-        }
-        
-        if segue.destination is TermsChoiceViewController {
-            let destination = segue.destination as! TermsChoiceViewController
-            destination.terms = termsSelected
-            destination.termsType = termsType
-            destination.delegate = self
-        }
-    }
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        sumTextField.resignFirstResponder()
-        numberTermsTextField.resignFirstResponder()
     }
     
     @IBAction func findAllResults(_ sender: UIButton) {
@@ -75,38 +37,51 @@ class HomeViewController: UIViewController, HomeDelegate {
             // todo afficher un message d'erreur
             return
         }
+        
         guard let sumToFind: Int = Int(sumText) else {
             // todo afficher un message d'erreur
             return
         }
+        
         guard let numberOfTerms = Int(numberTermsText) else {
             // todo afficher un message d'erreur
             return
         }
-        //let results = findResults(sumToFind: sumToFind, numberOfTerms: numberOfTerms, possibleTerms: )
-        //print(results)
+        
+        let results = findResults(sumToFind: sumToFind, numberOfTerms: numberOfTerms)
+        showResults(results)
     }
     
-    //    private func findResults(sumToFind: Int, numberOfTerms: Int) {
-//        let mustUsedTerms: [Int] = self.mustUsedTerms.filter { $0.isSelected }.map { $0.number }
-//        var possibleTerms: [Int] = self.notUsedTerms.filter { !$0.isSelected }.map { $0.number }
-//        possibleTerms.removeAll(mustUsedTerms)
-//
-//        var results: [[Int]] = []
-//        let resultsFind = findResults(
-//            sumToFind: sumToFind - mustUsedTerms.sum(),
-//            numberOfTerms: numberOfTerms - mustUsedTerms.count,
-//            possibleTerms: possibleTerms.map { [$0] }
-//        )
-//        for resultFind in resultsFind {
-//            var result: [Int] = []
-//            result.addAll(mustUsedTerms)
-//            result.addAll(resultFind)
-//            results.append(result)
-//        }
-//
-//        self.results = results
-//    }
+    private func showResults(_ results: [[Int]]) {
+        resultsTitleText.isHidden = false
+        var textResults = "Pas de résultats"
+        
+        if !results.isEmpty {
+            textResults = results.map({ "\($0)" }).joined(separator: "\n")
+        }
+        resultsTextView.text = textResults
+    }
+
+    // MARK: - Find results
+    private func findResults(sumToFind: Int, numberOfTerms: Int) -> [[Int]] {
+        var possibleTerms = self.possibleTerms.filter { !notUsedTerms.contains($0) }
+        possibleTerms.removeAll(neededTerms)
+
+        var results: [[Int]] = []
+        let resultsFind = findResults(
+            sumToFind: sumToFind - neededTerms.sum(),
+            numberOfTerms: numberOfTerms - neededTerms.count,
+            possibleTerms: possibleTerms.map { [$0] }
+        )
+        for resultFind in resultsFind {
+            var result: [Int] = []
+            result.addAll(neededTerms)
+            result.addAll(resultFind)
+            results.append(result)
+        }
+
+        return results
+    }
     
     private func findResults(sumToFind: Int, numberOfTerms: Int, possibleTerms: [[Int]]) -> [[Int]] {
         var possibleTerms: [[Int]] = possibleTerms
@@ -147,7 +122,62 @@ class HomeViewController: UIViewController, HomeDelegate {
         
         return termsGoal
     }
+    
+    // MARK: HomeDelegate
+    func setNotUsedTerms(notUsedTerms: [Int]) {
+        self.notUsedTerms = notUsedTerms
+        var textToShow = "Tous les termes possible"
+        
+        if !possibleTerms.isEmpty {
+            let terms = self.notUsedTerms.map({ String($0) }).joined(separator: ", ")
+            textToShow = "Impossibles: \(terms)"
+        }
+        self.possibleTermsText.text = textToShow
+    }
+    
+    func setNeededTerms(neededTerms: [Int]) {
+        self.neededTerms = neededTerms
+        var textToShow = "Aucun termes obligatoires"
+        
+        if !neededTerms.isEmpty {
+            let terms = neededTerms.map({ String($0) }).joined(separator: ", ")
+            textToShow = "Obligatoires: \(terms)"
+        }
+        
+        self.neededTermsText.text = textToShow
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        sumTextField.resignFirstResponder()
+        numberTermsTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let button = sender as? UIButton else {
+            return
+        }
+        var termsSelected: [Int]
+        var termsType: TermsChoiceViewController.TermsType
+        
+        if button.tag == 1 {
+            termsSelected = notUsedTerms
+            termsType = .notUsed
+        } else {
+            termsSelected = neededTerms
+            termsType = .needed
+        }
+        
+        if segue.destination is TermsChoiceViewController {
+            let destination = segue.destination as! TermsChoiceViewController
+            destination.terms = termsSelected
+            destination.termsType = termsType
+            destination.delegate = self
+        }
+    }
 
+    // MARK: - Data
+    private let possibleTerms: [Int] = [1,2,3,4,5,6,7,8,9]
 
 }
 

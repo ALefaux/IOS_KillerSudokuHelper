@@ -100,6 +100,19 @@
                                     <segue destination="Lao-3L-uds" kind="presentation" id="OoA-Jr-2QP"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi5-JB-Dls">
+                                <rect key="frame" x="20" y="469" width="374" height="303"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Résultats :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sH2-j2-6on">
+                                <rect key="frame" x="20" y="426" width="88" height="23"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -120,6 +133,7 @@
                             <constraint firstItem="Skr-LA-dtc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LEd-MA-k19"/>
                             <constraint firstItem="OGF-2Q-TJT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NLf-57-Akx"/>
                             <constraint firstItem="D5r-ca-KM9" firstAttribute="leading" secondItem="97B-pI-qpW" secondAttribute="trailing" constant="20" id="QnL-Ow-nLv"/>
+                            <constraint firstItem="Bi5-JB-Dls" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="RdT-e5-Lpy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OGF-2Q-TJT" secondAttribute="trailing" constant="20" id="USq-1l-cLU"/>
                             <constraint firstItem="mCo-rD-UjY" firstAttribute="leading" secondItem="z41-Pm-FgK" secondAttribute="trailing" constant="10" id="Uh4-Tq-1iH"/>
                             <constraint firstItem="D5r-ca-KM9" firstAttribute="centerY" secondItem="97B-pI-qpW" secondAttribute="centerY" id="Vf0-7b-sX5"/>
@@ -132,15 +146,22 @@
                             <constraint firstItem="z41-Pm-FgK" firstAttribute="top" secondItem="Kbz-KO-USl" secondAttribute="bottom" constant="20" id="gex-Ve-oc0"/>
                             <constraint firstItem="LaX-Jr-49n" firstAttribute="top" secondItem="uQg-ph-Ni1" secondAttribute="bottom" id="giZ-Nv-la8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uQg-ph-Ni1" secondAttribute="trailing" constant="20" id="igl-UB-ooW"/>
+                            <constraint firstItem="OGF-2Q-TJT" firstAttribute="top" secondItem="Bi5-JB-Dls" secondAttribute="bottom" constant="20" id="jcy-zf-6PO"/>
+                            <constraint firstItem="sH2-j2-6on" firstAttribute="top" secondItem="97B-pI-qpW" secondAttribute="bottom" constant="30" id="oVT-12-GL0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ADt-eY-sEC" secondAttribute="trailing" constant="20" id="oot-6z-lMc"/>
                             <constraint firstItem="ADt-eY-sEC" firstAttribute="top" secondItem="LaX-Jr-49n" secondAttribute="bottom" constant="20" id="rk9-Cr-4NP"/>
+                            <constraint firstItem="Bi5-JB-Dls" firstAttribute="top" secondItem="sH2-j2-6on" secondAttribute="bottom" constant="20" id="rwn-eL-Uex"/>
+                            <constraint firstItem="sH2-j2-6on" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tjn-bQ-KHj"/>
                             <constraint firstItem="ADt-eY-sEC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vwM-Ah-aWl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bi5-JB-Dls" secondAttribute="trailing" constant="20" id="ydq-UC-Lsf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="neededTermsText" destination="97B-pI-qpW" id="gmK-p0-dRC"/>
                         <outlet property="numberTermsTextField" destination="Rfn-1L-ch5" id="z2F-oK-oSa"/>
                         <outlet property="possibleTermsText" destination="z41-Pm-FgK" id="GrR-Uc-0SO"/>
+                        <outlet property="resultsTextView" destination="Bi5-JB-Dls" id="GSd-Sm-1U6"/>
+                        <outlet property="resultsTitleText" destination="sH2-j2-6on" id="V8M-oE-Ydr"/>
                         <outlet property="sumTextField" destination="LaX-Jr-49n" id="qyp-nT-QWE"/>
                     </connections>
                 </viewController>
@@ -334,6 +355,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

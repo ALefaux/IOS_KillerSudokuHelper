@@ -29,6 +29,12 @@ class TermsChoiceViewController: UIViewController {
         oneButton.backgroundColor = getBackgroundColor(element: 1)
         twoButton.backgroundColor = getBackgroundColor(element: 2)
         threeButton.backgroundColor = getBackgroundColor(element: 3)
+        fourButton.backgroundColor = getBackgroundColor(element: 4)
+        fiveButton.backgroundColor = getBackgroundColor(element: 5)
+        sixButton.backgroundColor = getBackgroundColor(element: 6)
+        sevenButton.backgroundColor = getBackgroundColor(element: 7)
+        eightButton.backgroundColor = getBackgroundColor(element: 8)
+        nineButton.backgroundColor = getBackgroundColor(element: 9)
     }
 
     @IBAction func numberButtonClick(_ sender: UIButton) {
@@ -59,8 +65,8 @@ class TermsChoiceViewController: UIViewController {
     }
     
     @IBAction func valider(_ sender: UIButton) {
-        if termsType == .possible {
-            delegate.setPossibleTerms(possibleTerms: terms)
+        if termsType == .notUsed {
+            delegate.setNotUsedTerms(notUsedTerms: terms)
         } else if termsType == .needed {
             delegate.setNeededTerms(neededTerms: terms)
         }
@@ -84,7 +90,7 @@ class TermsChoiceViewController: UIViewController {
     }
     
     enum TermsType {
-        case possible, needed
+        case notUsed, needed
     }
     
 }
