@@ -13,6 +13,7 @@ class TermsChoiceViewController: UIViewController {
     var termsType: TermsType!
     var delegate: HomeDelegate!
 
+    @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     @IBOutlet weak var threeButton: UIButton!
@@ -25,6 +26,8 @@ class TermsChoiceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleText.text = title
 
         oneButton.backgroundColor = getBackgroundColor(element: 1)
         twoButton.backgroundColor = getBackgroundColor(element: 2)
@@ -74,6 +77,20 @@ class TermsChoiceViewController: UIViewController {
         dismiss(animated: true) {
             
         }
+    }
+    
+    @IBAction func erase(_ sender: Any) {
+        self.terms.removeAll()
+        
+        oneButton.backgroundColor = getBackgroundColor(element: 1)
+        twoButton.backgroundColor = getBackgroundColor(element: 2)
+        threeButton.backgroundColor = getBackgroundColor(element: 3)
+        fourButton.backgroundColor = getBackgroundColor(element: 4)
+        fiveButton.backgroundColor = getBackgroundColor(element: 5)
+        sixButton.backgroundColor = getBackgroundColor(element: 6)
+        sevenButton.backgroundColor = getBackgroundColor(element: 7)
+        eightButton.backgroundColor = getBackgroundColor(element: 8)
+        nineButton.backgroundColor = getBackgroundColor(element: 9)
     }
     
     private func getBackgroundColor(element: Int) -> UIColor {

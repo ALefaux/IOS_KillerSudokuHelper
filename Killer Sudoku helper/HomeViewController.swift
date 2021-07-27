@@ -159,11 +159,14 @@ class HomeViewController: UIViewController, HomeDelegate {
         }
         var termsSelected: [Int]
         var termsType: TermsChoiceViewController.TermsType
+        var dialogTitle: String
         
         if button.tag == 1 {
+            dialogTitle = "Termes impossible"
             termsSelected = notUsedTerms
             termsType = .notUsed
         } else {
+            dialogTitle = "Termes obligatoires"
             termsSelected = neededTerms
             termsType = .needed
         }
@@ -173,6 +176,7 @@ class HomeViewController: UIViewController, HomeDelegate {
             destination.terms = termsSelected
             destination.termsType = termsType
             destination.delegate = self
+            destination.title = dialogTitle
         }
     }
 

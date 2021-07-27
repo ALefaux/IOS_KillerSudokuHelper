@@ -289,12 +289,22 @@
                                     <action selector="numberButtonClick:" destination="Lao-3L-uds" eventType="touchUpInside" id="gFT-uD-1C0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t56-QR-ceq">
+                                <rect key="frame" x="20" y="758" width="49" height="30"/>
+                                <state key="normal" title="Effacer">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="erase:" destination="Lao-3L-uds" eventType="touchUpInside" id="yJh-sZ-tdq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZWC-dL-vkT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WWe-ZL-8LJ" firstAttribute="leading" secondItem="JDr-1h-2R4" secondAttribute="trailing" constant="20" id="1o6-Ac-EPP"/>
                             <constraint firstItem="ZWC-dL-vkT" firstAttribute="trailing" secondItem="WWe-ZL-8LJ" secondAttribute="trailing" constant="20" id="38o-K0-W3a"/>
+                            <constraint firstItem="ZWC-dL-vkT" firstAttribute="bottom" secondItem="t56-QR-ceq" secondAttribute="bottom" constant="20" id="4le-Su-qwC"/>
                             <constraint firstItem="t9N-Tf-Y2j" firstAttribute="width" secondItem="EJI-rb-EkC" secondAttribute="width" id="5Yw-rw-00S"/>
                             <constraint firstItem="wh5-FB-vOy" firstAttribute="top" secondItem="6Bw-YF-B6R" secondAttribute="bottom" constant="20" id="82q-yR-S49"/>
                             <constraint firstItem="ZWC-dL-vkT" firstAttribute="trailing" secondItem="3Sk-fN-7JN" secondAttribute="trailing" constant="20" id="AyW-oS-a6a"/>
@@ -311,6 +321,7 @@
                             <constraint firstItem="DZC-cQ-FI3" firstAttribute="width" secondItem="EJI-rb-EkC" secondAttribute="width" id="agr-GT-5h2"/>
                             <constraint firstItem="3Sk-fN-7JN" firstAttribute="leading" secondItem="wh5-FB-vOy" secondAttribute="trailing" constant="20" id="arj-tk-IlR"/>
                             <constraint firstItem="t9N-Tf-Y2j" firstAttribute="top" secondItem="JDr-1h-2R4" secondAttribute="bottom" constant="20" id="auS-pc-Uzk"/>
+                            <constraint firstItem="t56-QR-ceq" firstAttribute="leading" secondItem="ZWC-dL-vkT" secondAttribute="leading" constant="20" id="byt-jL-1r5"/>
                             <constraint firstItem="JDr-1h-2R4" firstAttribute="top" secondItem="wh5-FB-vOy" secondAttribute="bottom" constant="20" id="dcQ-Sq-zgV"/>
                             <constraint firstItem="3Sk-fN-7JN" firstAttribute="width" secondItem="1hk-uc-7AF" secondAttribute="width" id="dkF-fS-3Nf"/>
                             <constraint firstItem="3Sk-fN-7JN" firstAttribute="top" secondItem="6Bw-YF-B6R" secondAttribute="bottom" constant="20" id="gWV-6A-JEh"/>
@@ -339,6 +350,7 @@
                         <outlet property="sevenButton" destination="EJI-rb-EkC" id="SIf-4D-loF"/>
                         <outlet property="sixButton" destination="WWe-ZL-8LJ" id="aAy-fF-PFV"/>
                         <outlet property="threeButton" destination="3Sk-fN-7JN" id="wN0-SL-cSc"/>
+                        <outlet property="titleText" destination="6Bw-YF-B6R" id="0SS-Ql-Go6"/>
                         <outlet property="twoButton" destination="wh5-FB-vOy" id="dXS-PH-fhK"/>
                     </connections>
                 </viewController>
@@ -363,6 +375,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
